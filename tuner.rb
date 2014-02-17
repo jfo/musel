@@ -1,11 +1,10 @@
+#mutable state why why why persistent data has to exist in the context of a class instance / instance var why?req
 require 'pry'
-
-#mutable state why why why persistent data has to exist in the context of a class instance / instance var why?
 
 class Tuner
   attr_reader :notes
 
-  def initialize(seed_freq = 440.0)
+   def initialize(seed_freq = 440.0)
     @seed = seed_freq
     @notes = {}
     @notes[0] = seed_freq
@@ -112,3 +111,4 @@ end
 
 x = Tuner.new()
 binding.pry
+
