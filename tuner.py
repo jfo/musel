@@ -76,6 +76,6 @@ def equal(seed):
 
     return notes
 
+print equal(440.0)
 print just_intonation(440.0)
 print pythagorean(440.0)
-print equal(440.0)
