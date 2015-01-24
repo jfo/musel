@@ -1,6 +1,4 @@
-require('locus');
-
-function derp(seed) {
+function equalTemp(seed) {
   acc = {};
   seed = typeof seed !== 'undefined' ? seed : 440.0;
 
@@ -19,7 +17,3 @@ function derp(seed) {
 
  return acc
 }
-
-var stuff = derp();
-console.log(stuff)
-eval(locus)
