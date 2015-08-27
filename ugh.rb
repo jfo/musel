@@ -1,4 +1,3 @@
-
 def makewaves(freq, sample_rate = 1000, duration = 3)
     output =[]
 
