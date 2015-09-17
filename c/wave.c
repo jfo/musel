@@ -4,21 +4,14 @@
 #define PI 3.14159265
 
 
-short sine(int x) {
-    double ret, val;
-    val = PI / 180;
-    ret = sin(x*val);
-    printf("The sine of %i is %lf degrees", x, ret);
-
-    return(0);
+float sine(int x) {
+    return(sin(1/x * PI) );
 }
 
 int main() {
-    for (int i = 1; i < 44101; i++) {
+    for (int i = 0; i < 10000; i++) {
         /* printf("%i\n", i); */
-        sine(i);
-        printf("\n");
-        sleep(1);
+        printf("%f\n", sine(i));
     }
     return 0;
 }

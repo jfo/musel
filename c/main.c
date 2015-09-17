@@ -1,11 +1,14 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <math.h>
 
 #define RIFF     "RIFF"
 #define WAVE     "WAVE"
 #define FMT      "fmt "
 #define DATA      "data"
+
+#define PI 3.14159265
 
 void write_header(FILE* fp) {
     fwrite(RIFF, 1, strlen(RIFF), fp);
@@ -52,20 +55,28 @@ void write_header(FILE* fp) {
     fwrite(&thing2, 1, 1, fp);
     int thing3 = 0x01;
     fwrite(&thing3, 1, 1, fp);
-    int thing4 = 0x00;
+    int thing4 = 0xa0;
     fwrite(&thing4, 1, 1, fp);
     /* fwrite("size", 1, strlen("size"), fp); */
+}
+
+float sine(int x, float freq) {
+    return( sin(x * PI  ) /44100);
 }
 
 int main () {
     FILE *fp = fopen( "out.wav" , "wb" );
     write_header(fp);
 
+    /* for (int i=1; i<100000;i++) { */
+    /*     int derp = rand(); */
+    /*     fwrite(&derp, 2, 1, fp); */
+    /* } */
+
     for (int i=1; i<100000;i++) {
-        int derp = rand();
+        float derp = sine(i, 440.0);
         fwrite(&derp, 2, 1, fp);
     }
-
     fclose(fp);
 
     return(0);
